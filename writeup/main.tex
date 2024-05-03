@@ -1,0 +1,176 @@
+%%%%%%%% ICML 2021 EXAMPLE LATEX SUBMISSION FILE %%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+% Recommended, but optional, packages for figures and better typesetting:
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{booktabs} % for professional tables
+
+% hyperref makes hyperlinks in the resulting PDF.
+% If your build breaks (sometimes temporarily if a hyperlink spans a page)
+% please comment out the following usepackage line and replace
+% \usepackage{icml2021} with \usepackage[nohyperref]{icml2021} above.
+\usepackage{hyperref}
+
+% Attempt to make hyperref and algorithmic work together better:
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+% Use the following line for the initial blind version submitted for review:
+%\usepackage{icml2021}
+
+% If accepted, instead use the following line for the camera-ready submission:
+\usepackage[accepted]{icml2021}
+
+% The \icmltitle you define below is probably too long as a header.
+% Therefore, a short form for the running title is supplied here:
+\icmltitlerunning{Stat157: Information Theory Final Project}
+
+\begin{document}
+
+\twocolumn[
+\icmltitle{Phase Transition of Ising Model with Belief Propegation}
+
+% It is OKAY to include author information, even for blind
+% submissions: the style file will automatically remove it for you
+% unless you've provided the [accepted] option to the icml2021
+% package.
+
+% List of affiliations: The first argument should be a (short)
+% identifier you will use later to specify author affiliations
+% Academic affiliations should list Department, University, City, Region, Country
+% Industry affiliations should list Company, City, Region, Country
+
+% You can specify symbols, otherwise they are numbered in order.
+% Ideally, you should not use this facility. Affiliations will be numbered
+% in order of appearance and this is the preferred way.
+\icmlsetsymbol{equal}{*}
+
+\begin{icmlauthorlist}
+\icmlauthor{Leon Ma}{to}
+\end{icmlauthorlist}
+
+\icmlaffiliation{to}{Department of Statistics, UC Berkeley}
+
+\icmlcorrespondingauthor{Leon Ma}{lma00@berkeley.edu}
+
+% You may provide any keywords that you
+% find helpful for describing your paper; these are used to populate
+% the "keywords" metadata in the PDF but will not be shown in the document
+\icmlkeywords{Machine Learning, ICML}
+
+\vskip 0.3in
+]
+
+% this must go after the closing bracket ] following \twocolumn[ ...
+
+% This command actually creates the footnote in the first column
+% listing the affiliations and the copyright notice.
+% The command takes one argument, which is text to display at the start of the footnote.
+% The \icmlEqualContribution command is standard text for equal contribution.
+% Remove it (just {}) if you do not need this facility.
+
+\printAffiliationsAndNotice{}  % leave blank if no need to mention equal contribution
+%\printAffiliationsAndNotice{\icmlEqualContribution} % otherwise use the standard text.
+
+\begin{abstract}
+    Ising models have traditionally been solved with Markov chain Monte Carlo methods, 
+    the most popular of which is the Gibbs’ sampler. However, MCMC suffers from correlated samples and long mixing times. 
+    In recent years, a new class of algorithms based on variational inference has come to light. These algorithms promise faster convergence abit at the cost of convergence. 
+    Belief propagation is an inference algorithm that uses message passing in order to approximate the probability distribution over a factor graph. 
+    In this paper, we apply belief propagation to solve the Ising model and show that during belief propagation, the 2D Ising model exhibits a phase transition similar to simulations using MCMC. We compare metrics of phase transitions to MCMC approaches and known theoretical results and conclude that belief propagation can solve the Ising model to a high degree of accuracy and retain many interesting properties that the Ising model is known for. 
+\end{abstract}
+
+\section{Introduction}
+\label{Introduction}
+    The Ising model is a mathematical model of ferromagnestim in statistical mechanics.
+    Invented first by Wilhelm Lenz in 1920 and the equations of the one-dimensional Ising model were solved in by
+    Lenz's student Ernst Ising in 1924. In 1944, Lars Onsager solved the equations for the two-dimensional case. 
+    As of today, no analytic solution has been found in dimensions three or higher. Over the last 100 years, many other problems such as percolation, min cut max flow, error correction, and neurodegenerative diseases were
+    shown to be very closely mathematically related to the Ising model. 
+    The Ising model's relatively simple formulation yet rich and general mathematical properties makes a \textit{drosophila} of physics, mathematics, statistics, and computer science.
+
+    Since Onsager's solution, it is known that the Ising model exhibits a phase transition just like magnets in the real world. Above the
+    a special temperature, the critical temperature (or more generally the critical point), the system under goes a rapid change, changing from an ordered magnetic state to a disordered non-magnetic state. 
+    This rapid change of order is fundementally related to the relationship between energy, entropy and free energy. When the system is at the critical point, it is said to be at
+    criticality and many interesting properties such as scale invariance and long range correlations are present
+    during the phase transition. 
+
+    However, due to the difficulty of solving the Ising models in higher dimensions, many approxiomation methods have been devolved over the years. 
+    Statistical physicists developed mean field theory and the cavity method to find approximate analytic solutions. In more recent times, the rise of computational 
+    power allowed computer algorithms to approximate solutions to the Ising model. The most well known class of algorithms are Markov Chain Monte Carlo (MCMC) algorithms such as 
+    Metropolis-Hasting algorithm and Gibbs' sampling. Although these algorithms are powerful and still widely used, they suffer long convergence times and autocorrelated samples.
+    
+    In this paper, we explore an alternative algorithm to approximately solve the Ising model called belief propagation. Belief propagation works by sending messages 
+    from each node of a factor graph to iteratively find the probability distrubition. We show that this method can calculate solutions comparable to Metropolis-Hastings and Gibbs sampling 
+    and show that solutions given by belief propegation exhibit a phase translation like predicted theoretically. 
+
+
+\section{Background}
+\label{Mathematical Background}
+    \subsection{Ising Model}
+    The Ising model models ferromagnestic materials as a lattice where each lattice site represents an 
+    electron that is either spin up $\sigma_i = +1$ or spin down $\sigma_i = -1$. Each lattice point only interacts
+    with it's adjacent neighbors. Thus, the total energy is given by the Hamiltonian function 
+\begin{equation}
+    H(\sigma) = - J \sum_{(i,j) \in \mathcal{N}} \sigma_i \sigma_j - B \sum_{j} \sigma_j
+\end{equation}
+where $(i,j) \in \mathcal{N}$ is understood to be the sum over all pairs of $(i,j)$ that are adjacent neighbors,
+$J$ is the physical constant knows as the coupling strength and $B$ is the strength of the external magnetic field.
+We assume $J=1$ for simplicity and no external magnetic field $B=0$. Thus other Hamiltonian reduces to 
+\begin{equation}
+    H(\sigma) = - \sum_{(i,j) \in \mathcal{N}} \sigma_i \sigma_j 
+\end{equation} 
+We notice that the energy is lower when $\sigma_i$ and $\sigma_j$ are the same sign and greater when $\sigma_i$ and $\sigma_j$ 
+are different signs. The energy is minimized when the spins are alligned in the same direction, corresponding to a magnetized state.
+However, the entropy is maximized when the spins are misalligned corresponding to a demagnetized state.
+
+The PMF of the system is given by the Boltzmann distribution
+
+\begin{equation}
+    P(\sigma) = \frac{e^{-\beta H(\sigma)}}{Z}
+\end{equation}
+
+where the inverse temperature $\beta = 1/(kT)$ and the normalization constant $Z = \sum e^{-\beta H(\sigma)}$.
+Given an initial square lattice of $\sigma$ and inverse temperature $\beta$ the goal is to find the equalibrium distrubition over $\sigma$.
+
+
+
+\subsection{Phase Transition}
+
+
+
+
+\section{Methods}
+    \label{Methods}
+
+        \subsection{Metropolis-Hasting}
+
+        \subsection{Gibbs Sampler}
+
+        \subsection{Belief Propegation}
+
+\section{Experiments}
+
+
+
+\section{Discussion}
+
+\section{Conclusion}
+
+
+\end{document}
+
+
+% This document was modified from the file originally made available by
+% Pat Langley and Andrea Danyluk for ICML-2K. This version was created
+% by Iain Murray in 2018, and modified by Alexandre Bouchard in
+% 2019 and 2021. Previous contributors include Dan Roy, Lise Getoor and Tobias
+% Scheffer, which was slightly modified from the 2010 version by
+% Thorsten Joachims & Johannes Fuernkranz, slightly modified from the
+% 2009 version by Kiri Wagstaff and Sam Roweis's 2008 version, which is
+% slightly modified from Prasad Tadepalli's 2007 version which is a
+% lightly changed version of the previous year's version by Andrew
+% Moore, which was in turn edited from those of Kristian Kersting and
+% Codrina Lauth. Alex Smola contributed to the algorithmic style files.
