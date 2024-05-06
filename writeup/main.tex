@@ -8,6 +8,9 @@
 \usepackage{subfigure}
 \usepackage{booktabs} % for professional tables
 \usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{amssymb}
 
 % hyperref makes hyperlinks in the resulting PDF.
 % If your build breaks (sometimes temporarily if a hyperlink spans a page)
@@ -114,15 +117,15 @@
     The Ising model models ferromagnestic materials as a two-dimensional lattice where each lattice site represents an 
     electron that is either spin up $\sigma_i = +1$ or spin down $\sigma_i = -1$. Each lattice point only interacts
     with it's adjacent neighbors. In this paper, we impose periodic boundary conditions. This is equivalent to the lattice wrapped around the surface of a torus. This simulates 
-    an infinitely large lattice and midigates boundary effects. Thus, the total energy is given by the Hamiltonian function 
+    an infinitely large lattice and midigates boundary effects. Thus, the total energy (also known as the Hamiltonian $H$ in physics literature) is
 \begin{equation}
-    H(\sigma) = - J \sum_{(i,j) \in \mathcal{N}} \sigma_i \sigma_j - B \sum_{j} \sigma_j
+    E(\sigma) = - J \sum_{(i,j) \in \mathcal{N}} \sigma_i \sigma_j - B \sum_{j} \sigma_j
 \end{equation}
 where $(i,j) \in \mathcal{N}$ is understood to be the sum over all pairs of $(i,j)$ that are adjacent neighbors,
 $J$ is the physical constant knows as the coupling strength and $B$ is the strength of the external magnetic field.
-We assume $J=1$ for simplicity and no external magnetic field $B=0$. Thus other Hamiltonian reduces to 
+We assume $J=1$ for simplicity and no external magnetic field $B=0$. Then our total energy is
 \begin{equation}
-    H(\sigma) = - \sum_{(i,j) \in \mathcal{N}} \sigma_i \sigma_j 
+    E(\sigma) = - \sum_{(i,j) \in \mathcal{N}} \sigma_i \sigma_j 
 \end{equation} 
 We notice that the energy is lower when $\sigma_i$ and $\sigma_j$ are the same sign and greater when $\sigma_i$ and $\sigma_j$ 
 are different signs. The energy is minimized when the spins are alligned in the same direction, corresponding to a magnetized state.
@@ -131,12 +134,11 @@ However, the entropy is maximized when the spins are misalligned corresponding t
 The PMF of the system is given by the Boltzmann distribution
 
 \begin{equation}
-    P(\sigma) = \frac{e^{-\beta H(\sigma)}}{Z}
+    P(\sigma) = \frac{e^{-\beta E(\sigma)}}{Z}
 \end{equation}
 
-where the inverse temperature $\beta = 1/(kT)$ and the normalization constant $Z = \sum e^{-\beta H(\sigma)}$.
+where the inverse temperature $\beta = 1/(kT)$, $k$ is Boltzmann's constant, and the normalization constant $Z = \sum e^{-\beta H(\sigma)}$.
 Given an initial square lattice of $\sigma$ and inverse temperature $\beta$ the goal is to find the equalibrium distrubition over $\sigma$.
-
 
 
 \subsection{Phase Transition}
@@ -145,13 +147,99 @@ However, more generally it refers to the rapid change of a systems order paramet
 This more general defintion can be applied to other fields such as rate distortion theory. The Ising model predicts a phase transition of a ferromagnetic system like an iron magnet from a demagnetized state to a magnetized state. 
 It is known emperically that heating a magnet above a certain temperature known as the Curie temperature (770 \degree C for iron) causes rapid
 demagnetization. The characteristic feature of the phase transition is that the magnetization strength changes very rapidly over a short range of temperature
-similar to how ice melts into water over a narrow temperature of range of 0\degree C. Onsager solved the 2D Ising model analytitically in the case of no external magnetic field and showed that the critical temperature is
+similar to how ice melts into water over a narrow temperature of range of 0\degree C. This transition from order to disorder is due to the changing strength of
+energetic and entropic forces.
+
+In nature, systems tend to minimize a thermodynamic quanity known as free energy. The free energy is given by
+
+\begin{equation}\label{eq:eq1}
+    F = E - TS
+\end{equation}
+where $S$ is the thermodynamic entropy. At high temperatures the entropy term is dominant and at low temperature the energetic term is dominant.
+This explains why the spins are misalligned at high temperature. The thermal energy from the envirnoment is sufficent to flip the lattice site spins.
+This thermal function acts like a corrupting force constantly distrupting the spins of the system. It is also convient to define the free energy as
+
+\begin{equation}
+    F = kT \ln Z
+\end{equation}
+The normalization constant $Z$ is called the partion function and it turns out it is very important. These two formulas are equivalent
+
+
+\begin{align}
+    S &= -k \sum_i p_i \ln p_i \\
+    &= -k \sum_i \frac{e^{-\beta E_i}}{Z} \ln \left(\frac{e^{-\beta E_i}}{Z} \right) \\
+    &= -k \sum_i \frac{e^{-\beta E_i}}{Z} (-\beta E_i - \ln Z) \\
+    &= k \beta \sum_i \frac{e^{-\beta E_i}}{Z} E_i + k \sum_i \frac{e^{-\beta E_i}}{Z} \ln Z \\
+    &= k \beta \langle E \rangle + k \ln Z \\
+    &= k \beta E + k \ln Z
+\end{align}
+
+since the energy $E$ is simply the energy averaged all over microstates $\langle E \rangle$. 
+Plugging this into \eqref{eq:eq1} yields
+
+\begin{align}
+    F &= E - T (k \beta E + k \ln Z) \\
+    &= E - T (k \frac{1}{kT} E + k \ln Z) \\
+    &= E - E + kT \ln Z \\
+    &= kT \ln Z
+\end{align}
+
+The energy can also be defined in terms of the partition function as
+
+\begin{align}
+    E &= -\pdv{\ln Z}{\beta} \\
+    &= -\frac{1}{Z} \frac{Z}{\beta} \\
+    &= -\frac{1}{Z} \pdv{}{\beta} \sum_i e^{-\beta E_i} \\
+    &= -\frac{1}{Z} \sum_i -E_i e^{-\beta E_i} \\
+    &= \sum_i E_i \frac{e^{-\beta E_i}}{Z} \\
+    &= \langle E \rangle \\
+    &= E 
+\end{align}
+
+These equations will be relevant when we discuss the connection between belief propagation and minimization of the Bethe free energy.
+
+By analyizing at what temperature the energy and entropy terms balance, Onsager solved the 2D Ising model analytitically in the case of no external magnetic field and showed that the critical temperature is
+
 \begin{equation}
     T_c = \frac{2J}{k \ln(1 + \sqrt2)}
 \end{equation}
 or in terms of $\beta_c = \frac{\ln(1 + \sqrt2)}{2J}$. This derivation is very technical and will not be covered here.
 
-The Ising model at the critical temperature exhibits many interesting properties 
+
+
+
+The Ising model at the critical temperature exhibits many interesting properties. The first is the rapid chance of the order parameter, 
+in the case of the Ising model, the magnetization given the average value of the spins.
+
+\begin{equation}
+    \langle M \rangle = \frac1N \sum_{i=1}^N \sigma_i
+\end{equation}
+
+In order to not give preference to major spin down or spin up configurations, it is convient to define the mangetization squared
+$\langle M^2 \rangle = \frac1N \sum_{i=1^N} \sigma_i^2$.
+
+At the critical temperature, the system reaches a critical state where order and disorder are perfectly matched.
+Here, the model exhibits long range correlations not found at other temperature reigmes. The Ising model only takes into account
+interactions between neigboring lattice sites. Therefore, we expect the correlation between lattice sites to be very short and lattice sites
+long distances apart to act inpendendently. This is in general true except when the system is at criticality. When order and disorder
+are perfectly balanced, local interactions have a ripple effect, meaning that local interactions lead to long range communication. The correlation function is given by
+
+\begin{equation}
+    C_{i,j} = \langle (\sigma_i - \langle \sigma_i \rangle)(\sigma_j - \langle \sigma_j \rangle \sigma_j) \rangle
+\end{equation}
+
+for lattice sites $\sigma_i$ and $\sigma_j$. 
+
+Then we can define the correlation length function
+
+\begin{equation}
+    C(d) = \mathbb{E} [ C_{i,j} \mid D(i,j) = d ]
+\end{equation}
+
+
+Another interesting phenomon observed at criticality is scale invariance. This means that the Ising model looks the same no matter what
+distance scale we observe the model. 
+
 
 \section{Methods}
     \label{Methods}
