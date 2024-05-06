@@ -208,8 +208,8 @@ or in terms of $\beta_c = \frac{\ln(1 + \sqrt2)}{2J}$. This derivation is very t
 
 
 
-The Ising model at the critical temperature exhibits many interesting properties. The first is the rapid chance of the order parameter, 
-in the case of the Ising model, the magnetization given the average value of the spins.
+Systems at the critical point exhibits many interesting properties. The first is the rapid change of the order parameter.
+In the case of the Ising model, the order parameter is the magnetization given the average value of the spins.
 
 \begin{equation}
     \langle M \rangle = \frac1N \sum_{i=1}^N \sigma_i
@@ -291,7 +291,7 @@ However, as we'll see, this naive method of randomly flipping a spin can lead to
 
 \subsection{Gibbs Sampler}
 The Gibbs sampler begins with $\mathbf{X} = (x_1, \ldots, x_2)$ with joint distribution $p(x_1, \ldots, x_n)$. Denote the $i$th sample
-$\mathbf{X}^{(i)} = (x_1^{1}, \ldots, x_n^{(i)})$. Then the Gibbs sampler samples
+$\mathbf{X}^{(i)} = (x_1^{(i)}, \ldots, x_n^{(i)})$. Then the Gibbs sampler samples
 
 \begin{equation} \label{eq:eq33}
     x_j^{(i+1)} \sim P(x_j^{(i+1)} \mid x_1^{(i+1)}, \ldots, x_{j-1}^{(i+1)}, x_{j+1}^{(i+1)}, \ldots, x_{n}^{(i+1)})
