@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1714776002 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1714776003
-  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1714776002 9344 39e28aaf53cff831a511f6a7c619d84f ""
+["pdflatex"] 1714964046 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1714964047
+  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1714964044 10904 bae591dd941d8a52e1c6b3acf2ab3000 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -91,6 +91,7 @@
   "/usr/local/texlive/2022/texmf-dist/tex/latex/subfigure/subfigure.sty" 1167176009 15188 91281c7ddbccfa54a8e0c3b56ab5aa72 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty" 1622581934 10214 00ce62e730d0cfe22b35e8f1c84949c7 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
+  "/usr/local/texlive/2022/texmf-dist/tex/latex/was/gensymb.sty" 1137111079 4612 29d19942d7123701aa6a3876b9ba11b1 ""
   "/usr/local/texlive/2022/texmf-dist/web2c/texmf.cnf" 1646502317 40171 cdab547de63d26590bebb3baff566530 ""
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1660522590 2826444 3880b58e0be3b36aadd1aedbf8c31803 ""
@@ -99,9 +100,9 @@
   "algorithmic.sty" 1714789002 7414 ce084815cf0aab483787dbc4bf2ace9c ""
   "fancyhdr.sty" 1714789002 20521 e5d13d98d57bd53d4fed3aa61bd29c86 ""
   "icml2021.sty" 1714770811 27078 40fce9a3d87dd5282a5f66f3f6adeed1 ""
-  "main.aux" 1714776003 833 24e2764f48b310f0252f7200043e683e "pdflatex"
+  "main.aux" 1714964046 833 24e2764f48b310f0252f7200043e683e "pdflatex"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1714776002 9344 39e28aaf53cff831a511f6a7c619d84f ""
+  "main.tex" 1714964044 10904 bae591dd941d8a52e1c6b3acf2ab3000 ""
   (generated)
   "main.aux"
   "main.log"

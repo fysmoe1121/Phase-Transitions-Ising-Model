@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{booktabs} % for professional tables
+\usepackage{gensymb}
 
 % hyperref makes hyperlinks in the resulting PDF.
 % If your build breaks (sometimes temporarily if a hyperlink spans a page)
@@ -87,7 +88,7 @@
     The Ising model is a mathematical model of ferromagnestim in statistical mechanics.
     Invented first by Wilhelm Lenz in 1920 and the equations of the one-dimensional Ising model were solved in by
     Lenz's student Ernst Ising in 1924. In 1944, Lars Onsager solved the equations for the two-dimensional case. 
-    As of today, no analytic solution has been found in dimensions three or higher. Over the last 100 years, many other problems such as percolation, min cut max flow, error correction, and neurodegenerative diseases were
+    As of today, no analytic solution has been found in dimensions three or higher. Over the last 100 years, many other problems such as percolation, min cut max flow, error correction, neural networks, and neurodegenerative diseases were
     shown to be very closely mathematically related to the Ising model. 
     The Ising model's relatively simple formulation yet rich and general mathematical properties makes a \textit{drosophila} of physics, mathematics, statistics, and computer science.
 
@@ -110,9 +111,10 @@
 \section{Background}
 \label{Mathematical Background}
     \subsection{Ising Model}
-    The Ising model models ferromagnestic materials as a lattice where each lattice site represents an 
+    The Ising model models ferromagnestic materials as a two-dimensional lattice where each lattice site represents an 
     electron that is either spin up $\sigma_i = +1$ or spin down $\sigma_i = -1$. Each lattice point only interacts
-    with it's adjacent neighbors. Thus, the total energy is given by the Hamiltonian function 
+    with it's adjacent neighbors. In this paper, we impose periodic boundary conditions. This is equivalent to the lattice wrapped around the surface of a torus. This simulates 
+    an infinitely large lattice and midigates boundary effects. Thus, the total energy is given by the Hamiltonian function 
 \begin{equation}
     H(\sigma) = - J \sum_{(i,j) \in \mathcal{N}} \sigma_i \sigma_j - B \sum_{j} \sigma_j
 \end{equation}
@@ -138,9 +140,18 @@ Given an initial square lattice of $\sigma$ and inverse temperature $\beta$ the 
 
 
 \subsection{Phase Transition}
+In physics a phase transition refers to a change of a system from one state to another. A classical example is ice melting into water.
+However, more generally it refers to the rapid change of a systems order parameter as a function of one or more of the systems parameters. 
+This more general defintion can be applied to other fields such as rate distortion theory. The Ising model predicts a phase transition of a ferromagnetic system like an iron magnet from a demagnetized state to a magnetized state. 
+It is known emperically that heating a magnet above a certain temperature known as the Curie temperature (770 \degree C for iron) causes rapid
+demagnetization. The characteristic feature of the phase transition is that the magnetization strength changes very rapidly over a short range of temperature
+similar to how ice melts into water over a narrow temperature of range of 0\degree C. Onsager solved the 2D Ising model analytitically in the case of no external magnetic field and showed that the critical temperature is
+\begin{equation}
+    T_c = \frac{2J}{k \ln(1 + \sqrt2)}
+\end{equation}
+or in terms of $\beta_c = \frac{\ln(1 + \sqrt2)}{2J}$. This derivation is very technical and will not be covered here.
 
-
-
+The Ising model at the critical temperature exhibits many interesting properties 
 
 \section{Methods}
     \label{Methods}
