@@ -261,7 +261,7 @@ an implict Markov Chain model of the system and sampling from the stationary dis
 distrubtion. This works because when the Ising model is at thermodynamic equalibrium, it's Markov chain satifies the detailed balance equations
 
 \begin{equation}
-    p_{\mu} P(\mu \rightarrow \nu) = p_{\nu} P(\nu \rightarrow \mu)
+    \pi_{\mu} P(\mu \rightarrow \nu) = \pi_{\nu} P(\nu \rightarrow \mu)
 \end{equation}
 
 where $\mu$ and $\nu$ are states, $p_{\mu}$ is the probability that the system is in state $\mu$ and $P(\mu \rightarrow \nu)$
@@ -269,7 +269,7 @@ is the probability that the system will transition from state $\mu$ to state $\n
 
 \begin{align}
     \frac{P(\mu \rightarrow \nu)}{P(\nu \rightarrow \mu)}
-    &= \frac{p_{\nu}}{p_{\mu}} \\
+    &= \frac{\pi_{\nu}}{\pi_{\mu}} \\
     &= \frac{e^{-\beta E_{\nu}} / Z}{e^{-\beta E_{\mu}} / Z} \\
     &= e^{-\beta(E_{\nu} - E{\mu})} \\
     &= e^{-\beta \Delta E}
