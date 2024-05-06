@@ -228,13 +228,13 @@ are perfectly balanced, local interactions have a ripple effect, meaning that lo
     C_{i,j} = \langle (\sigma_i - \langle \sigma_i \rangle)(\sigma_j - \langle \sigma_j \rangle) \rangle
 \end{equation}
 
-where the $\langle \cdot \rangle$ denotes the time average. 
-
-Then we can define the correlation length function,
+where $\langle \cdot \rangle$ denotes the time average. Then we can define the correlation length function,
 
 \begin{equation}
-    C(d) = \mathbb{E} [ C_{i,j} \mid D(i,j) = d ]
+    C(d) = \mathbb{E} \left[ C_{i,j} \mid D(i,j) = d \right]
 \end{equation}
+
+which is the correlation strength as a function of the distance between lattice sites.
 
 Another interesting phenomona observed at criticality is scale invariance. Suppose for each 3 by 3 block of spins, we replace that block
 with the spin corresponding to the majority spin value out of those 9 smaller spins. Apply this procedure to the whole lattice and we have
@@ -250,15 +250,95 @@ the same spin. If the distrubition of the cluster sizes is scale invariant, they
 where $f(x)$ is the probability of observing a cluster size with size $x$. We can visualize this as a straight line
 on a log-log plot where the slope is $\gamma$.
 
-
 \section{Methods}
-    \label{Methods}
+\label{Methods}
 
-        \subsection{Metropolis-Hasting}
+\subsection{Metropolis-Hasting}
+In the previous sections we have described the mathematical background behind the Ising model and theory of phase transitions.
+However, solving the Ising model analytitically is extremely difficult and in practice computational methods are used. The most common of these methods 
+are Monte Carlo Markov Chain methods. The simpliest example of MCMC is the Metropolis-Hasting algorithm. Metropolis-Hasting works by building 
+an implict Markov Chain model of the system and sampling from the stationary distrubtion of the chain to generate samples of the system's true probability
+distrubtion. This works because when the Ising model is at thermodynamic equalibrium, it's Markov chain satifies the detailed balance equations
 
-        \subsection{Gibbs Sampler}
+\begin{equation}
+    p_{\mu} P(\mu \rightarrow \nu) = p_{\nu} P(\nu \rightarrow \mu)
+\end{equation}
 
-        \subsection{Belief Propegation}
+where $\mu$ and $\nu$ are states, $p_{\mu}$ is the probability that the system is in state $\mu$ and $P(\mu \rightarrow \nu)$
+is the probability that the system will transition from state $\mu$ to state $\nu$. Then we have that 
+
+\begin{align}
+    \frac{P(\mu \rightarrow \nu)}{P(\nu \rightarrow \mu)}
+    &= \frac{p_{\nu}}{p_{\mu}} \\
+    &= \frac{e^{-\beta E_{\nu}} / Z}{e^{-\beta E_{\mu}} / Z} \\
+    &= e^{-\beta(E_{\nu} - E{\mu})} \\
+    &= e^{-\beta \Delta E}
+\end{align}
+
+where the change in energy $\Delta E = E_{\nu} - E{\mu}$. Suppose that we start in state $\mu$. At each step of the algorithm, we flip a random spin $\sigma_j \mid j \sim U\{1,2,\ldots,n\}$ to create a new state $\nu$.
+If $E_{\nu} < E_{\mu}$ then $\Delta E < 0$ and the system would enter the lower energy state so $P(\nu \rightarrow \mu) = 1$. This gives us
+$P(\mu \rightarrow \nu) = e^{-\beta \Delta E}$. Note that the probability that the system moves to a higher energy state 
+is non zero due to random fluctuations due to the thermal energy. Furthermore as $T$ increases, $\beta$ decreases causing $e^{-\beta \Delta E}$
+to increase meaning that spin flips are more likely at higher temperature. If $E_{\mu} < E_{\nu}$ we can similarly define $P(\mu \rightarrow \nu) = 1$
+and $P(\nu \rightarrow \mu) = e^{-\beta(-\Delta E)}$. This gives us the acceptance probability for $\mu \rightarrow \nu$ to be
+
+\begin{equation}
+    \alpha = \min(1, e^{-\beta \Delta E})
+\end{equation}
+
+Thus, we only need to calculate the difference in energy $\Delta E = E_{\mu} - E_{\nu}$ when determining wether to accept or reject a canidate state.
+However, as we'll see, this naive method of randomly flipping a spin can lead to pathelogical a Markov chain.
+
+\subsection{Gibbs Sampler}
+The Gibbs sampler begins with $\mathbf{X} = (x_1, \ldots, x_2)$ with joint distribution $p(x_1, \ldots, x_n)$. Denote the $i$th sample
+$\mathbf{X}^{(i)} = (x_1^{1}, \ldots, x_n^{(i)})$. Then the Gibbs sampler samples
+
+\begin{equation} \label{eq:eq33}
+    x_j^{(i+1)} \sim P(x_j^{(i+1)} \mid x_1^{(i+1)}, \ldots, x_{j-1}^{(i+1)}, x_{j+1}^{(i+1)}, \ldots, x_{n}^{(i+1)})
+\end{equation}
+
+In our specific case we choose the index $j \sim U\{1,2,\ldots, n\}$. $x_j^{(i+1)}$ is given by $\ref{eq:eq33}$ and 
+$x_{\backslash j}^{(i+1)} = x_{\backslash j}^{(i)}$. The advantage of Gibbs sampling is that in some cases is it simpler ot sample from the conditional
+distrubtion then it is to marginalize the joint distrubtion.
+
+In the case of our Ising model, at each time step we sample a lattice point $j$ uniformly. Then according to our update rule, 
+the probability of $\sigma_j$ being spin up is given by 
+
+\begin{equation}
+    \begin{split}
+    &P(\sigma_j = +1) = \\
+    &\quad \frac{\exp(-\beta E(\ldots, \sigma_j = +1, \ldots))}{\exp(-\beta E(\ldots, \sigma_j = +1, \ldots)) + \exp(-\beta E(\ldots, \sigma_j = -1, \ldots))}
+    \end{split}
+\end{equation}
+
+where $\ldots$ denotes the spins of the other lattice points at the previous time step. $P(\sigma_j = -1)$ is given similarly. 
+Notice that this update rule does not depend on the value of $\sigma_j$ at the previous time step. This update rule
+is referred to as the heat bath update rule because the orientation of each spin depends only on the energy transferred from the thermal energy of the heat bath.
+
+Now lets try to reformulate this update rule to better match our Metropolis-Hasting update rule. 
+Suppose that initially $\sigma_j = -1$. Let the event that $\sigma_j = +1$ at the next time step be denoted $\mu \rightarrow \nu$ as before.
+Then 
+\begin{align}
+    &P(\mu \rightarrow \nu) = P(\sigma_j = +1) = \\
+    &\frac{\exp(-\beta E(\ldots, \sigma_j = +1, \ldots))}{\exp(-\beta E(\ldots, \sigma_j = +1, \ldots)) + \exp(-\beta E(\ldots, \sigma_j = -1, \ldots))} \\
+    &= \frac{\exp(-\beta E_{\nu})}{\exp(-\beta E_{\nu}) + \exp(-\beta E_{\mu})} \\
+    &= \frac{\exp(-\beta (E_{\mu} + (E_{\nu} - E{\mu})))}{\exp(-\beta (E_{\mu} + (E_{\nu} - E{\mu}))) + \exp(-\beta E_{\mu})} \\
+    &= \frac{\exp(-\beta (E_{\mu} + \Delta E))}{\exp(-\beta (E_{\mu} + \Delta E)) + \exp(-\beta E_{\mu})} \\
+    &= \frac{\exp(-\beta E_{\mu}) \exp(-\beta \Delta E)}{\exp(-\beta E_{\mu}) \exp(-\beta \Delta E) + \exp(-\beta E_{\mu})} \\
+    &= \frac{\exp(-\beta \Delta E)}{\exp(-\beta \Delta E) + 1} \\
+    &= \frac{1}{1 + \frac{1}{\exp(-\beta \Delta E)}}
+\end{align}
+Following the same derivation for the probability that $\sigma_j$ is initially at spin up then is flipped spin down gives the same expression.
+Thus, the probability of the spin flip under the heat bath update rule is 
+
+\begin{equation}
+    \alpha = \left(1 + \frac{1}{\exp(-\beta \Delta E)}\right)^{-1}
+\end{equation}
+
+We can just replace our Metropolis-Hasting algorithm with this new acceptance probability showing that the Gibbs sampler is special case of the Metropolis-Hasting algorithm. 
+This class of update rules that depend soley on the Boltzmann distrubtion is known as Glauber dynamics. We shall see in practice this update rule generally results in faster convergence.
+
+\subsection{Belief Propegation}
 
 \section{Experiments}
 
