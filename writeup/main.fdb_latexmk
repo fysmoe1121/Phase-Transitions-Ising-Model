@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1714972719 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1714972719
-  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1714972718 14773 b3c6de4b448e80e5854df6f75b5a7955 ""
+["pdflatex"] 1714973870 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1714973871
+  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1714973870 15640 06fbf9cee31ee1ede8009dc19d36d80b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -124,9 +124,9 @@
   "algorithmic.sty" 1714789002 7414 ce084815cf0aab483787dbc4bf2ace9c ""
   "fancyhdr.sty" 1714789002 20521 e5d13d98d57bd53d4fed3aa61bd29c86 ""
   "icml2021.sty" 1714770811 27078 40fce9a3d87dd5282a5f66f3f6adeed1 ""
-  "main.aux" 1714972719 877 d45d269d9379e7cbf1d122102f1ea3fb "pdflatex"
+  "main.aux" 1714973871 877 d45d269d9379e7cbf1d122102f1ea3fb "pdflatex"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1714972718 14773 b3c6de4b448e80e5854df6f75b5a7955 ""
+  "main.tex" 1714973870 15640 06fbf9cee31ee1ede8009dc19d36d80b ""
   (generated)
   "main.aux"
   "main.log"

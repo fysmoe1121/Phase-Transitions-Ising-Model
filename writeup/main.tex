@@ -225,20 +225,30 @@ long distances apart to act inpendendently. This is in general true except when 
 are perfectly balanced, local interactions have a ripple effect, meaning that local interactions lead to long range communication. The correlation function is given by
 
 \begin{equation}
-    C_{i,j} = \langle (\sigma_i - \langle \sigma_i \rangle)(\sigma_j - \langle \sigma_j \rangle \sigma_j) \rangle
+    C_{i,j} = \langle (\sigma_i - \langle \sigma_i \rangle)(\sigma_j - \langle \sigma_j \rangle) \rangle
 \end{equation}
 
-for lattice sites $\sigma_i$ and $\sigma_j$. 
+where the $\langle \cdot \rangle$ denotes the time average. 
 
-Then we can define the correlation length function
+Then we can define the correlation length function,
 
 \begin{equation}
     C(d) = \mathbb{E} [ C_{i,j} \mid D(i,j) = d ]
 \end{equation}
 
+Another interesting phenomona observed at criticality is scale invariance. Suppose for each 3 by 3 block of spins, we replace that block
+with the spin corresponding to the majority spin value out of those 9 smaller spins. Apply this procedure to the whole lattice and we have
+a new lattice with a third of the distance scale. This procedure is called a course graining. We can continue this procedure indefinitely on an 
+infinitely large lattice. At the critical point, all these lattices of varying length scales look the same, in other words there is no 
+characteristic scale. To show this idea graphically, we plot the distribution of the cluster sizes where a cluster is a group of lattice points with
+the same spin. If the distrubition of the cluster sizes is scale invariant, they should follow a power law
 
-Another interesting phenomon observed at criticality is scale invariance. This means that the Ising model looks the same no matter what
-distance scale we observe the model. 
+\begin{equation}
+    f(x) = A x^{-\gamma}
+\end{equation}
+
+where $f(x)$ is the probability of observing a cluster size with size $x$. We can visualize this as a straight line
+on a log-log plot where the slope is $\gamma$.
 
 
 \section{Methods}
