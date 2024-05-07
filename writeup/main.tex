@@ -125,6 +125,11 @@
         \label{fig:1}
     \end{figure}
     
+    \begin{figure}[ht]
+        \includegraphics[width=\columnwidth]{diagrams/16x16_lattice.png}
+        \caption{16x16 Lattice where an electron is spin up with probability 0.75. Blue is spin up and red is spin down.}
+        \label{fig:4}
+    \end{figure}
     
     Thus, the total energy (also known as the Hamiltonian $H$ in physics literature) is
 \begin{equation}
@@ -235,7 +240,21 @@ In order to not give preference to major spin down or spin up configurations, it
 $\langle m^2 \rangle = \frac1N \sum_{i=1^N} \sigma_i^2$.
 
 At the critical temperature, the system reaches a critical state where order and disorder are perfectly matched.
-Here, the model exhibits long range correlations not found at other temperature reigmes. The Ising model only takes into account
+The spins exhibit coordination and thus in order to demagnetized the system, lots of energy must be exerted to break the coordination of the spins.
+We can then define the specific heat as a measure of how difficult it is to break the coordination of the spins.
+
+\begin{align}
+    C_v &= \pdv{E}{T} \\
+    &= -\pdv{E}{\beta} \pdv{\beta}{T} \\
+    &= \pdv[2]{\ln Z}{\beta} \left( - \frac{1}{k_B T^2} \right) \\
+    &= k_B \beta^2 ( \langle E^2 \rangle - { \langle E \rangle }^2 )
+\end{align}
+
+where $\langle E^2 \rangle - { \langle E \rangle }^2 = \mathrm{Var}(E)$. This is analgous to how when ice melts into water, 
+adding more energy to melting ice does not increae it's temperature as all the energy is used to break the molecular bounds between 
+the water molecules in the ice crystal to form liquid water. 
+
+This breaking of structure at the critical point is closely related to another phenomenon, long range correlations. The Ising model only takes into account
 interactions between neigboring lattice sites. Therefore, we expect the correlation between lattice sites to be very short and lattice sites
 long distances apart to act inpendendently. This is in general true except when the system is at criticality. When order and disorder
 are perfectly balanced, local interactions have a ripple effect, meaning that local interactions lead to long range communication. The correlation function is given by
@@ -369,8 +388,30 @@ This class of update rules that depend soley on the Boltzmann distrubtion is kno
 \subsection{MCMC Convergence}
     First we will compare the convergence of the Metropolis-Hasting sampler to the Gibbs sampler.
 
-    We see that Gibbs sampler has faster convergence and is more stable then the Metropolis-Hasting sampler. Thus, in the future,
-    we will be using the Gibbs sampler.
+    \begin{figure}[ht]
+        \includegraphics[width=\columnwidth]{plots/energy_density_mh.png}
+        \caption{Convergence test of Metropolis-Hasting algorithm}
+        \label{fig:3}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \includegraphics[width=\columnwidth]{plots/energy_density_gibbs.png}
+        \caption{Convergence test of Gibbs algorithm}
+        \label{fig:3}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \includegraphics[width=\columnwidth]{plots/mag_sq_density_mh.png}
+        \caption{Convergence test of Metropolis-Hasting algorithm}
+        \label{fig:3}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \includegraphics[width=\columnwidth]{plots/mag_sq_density_gibbs.png}
+        \caption{Convergence test of Gibbs algorithm}
+        \label{fig:3}
+    \end{figure}
+    
 \subsection{Order Parameters}
 
 Now we study how the energy and the magnetization change with $\beta$ and the lattice size $L$. 
@@ -403,11 +444,20 @@ which is in very close agreement.
 
 Lastly we also notice that as $L$ increases, the phase transition becomes sharper. This suggests that phase transitions are
 an emergent phenomenon. In reality, the number of electrons is orders of magnetudes larger then this simulation giving the extremely sharp 
-phase transitions we observe in nature.
+phase transitions we observe in nature. All these observations hold true for the specific heat.
+
+\begin{figure}[ht]
+    \includegraphics[width=\columnwidth]{plots/specific_heat.png}
+    \caption{Specific Heat vs Inverse Temperature}
+    \label{fig:6}
+\end{figure}
+
+The peak at $\beta=0.44$ means that at that point, the most thermal energy is spent breaking the favorable energetic interactions of the
+electrons.
 
 \subsection{Critical Phenomena}
-Now we turn to special properties of the Ising model at criticality. As we outlined in section 2.2, systems at criticality
-exhibit long range correlations. Using $L=16$ and $p=0.5$ we plot the correlation strength as a function of the distance $d$ between
+Now we turn to special properties of the Ising model at criticality. From here on out, we use $L=16$, $p=0.5$ and the Gibbs sampler as before. As we outlined in section 2.2, systems at criticality
+exhibit long range correlations. We plot the correlation strength as a function of the distance $d$ between
 two lattice points. 
 
 \begin{figure}[ht]
