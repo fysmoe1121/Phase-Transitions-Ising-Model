@@ -131,13 +131,19 @@ We notice that the energy is lower when $\sigma_i$ and $\sigma_j$ are the same s
 are different signs. The energy is minimized when the spins are alligned in the same direction, corresponding to a magnetized state.
 However, the entropy is maximized when the spins are misalligned corresponding to a demagnetized state.
 
+We can then introduce the partition function, 
+
+\begin{equation}
+    Z = Z(\beta) = \sum e^{-\beta E(\sigma)}
+\end{equation}
+
 The PMF of the system is given by the Boltzmann distribution
 
 \begin{equation}
     P(\sigma) = \frac{e^{-\beta E(\sigma)}}{Z}
 \end{equation}
 
-where the inverse temperature $\beta = 1/(kT)$, $k$ is Boltzmann's constant, and the normalization constant $Z = \sum e^{-\beta H(\sigma)}$.
+where the inverse temperature $\beta = 1/(kT)$, $k$ is Boltzmann's constant, and the partition function $Z$ is the normalization constant.
 Given an initial square lattice of $\sigma$ and inverse temperature $\beta$ the goal is to find the equalibrium distrubition over $\sigma$.
 
 
@@ -162,7 +168,8 @@ This thermal function acts like a corrupting force constantly distrupting the sp
 \begin{equation}
     F = kT \ln Z
 \end{equation}
-The normalization constant $Z$ is called the partion function and it turns out it is very important. These two formulas are equivalent
+
+These two formulas are equivalent
 
 
 \begin{align}
