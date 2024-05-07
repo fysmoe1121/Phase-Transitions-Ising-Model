@@ -871,6 +871,16 @@ INPUT ./plots/avg_mag_vs_beta.png
 INPUT plots/avg_mag_vs_beta.png
 INPUT ./plots/avg_mag_vs_beta.png
 INPUT ./plots/avg_mag_vs_beta.png
+INPUT ./plots/corr_len.png
+INPUT ./plots/corr_len.png
+INPUT plots/corr_len.png
+INPUT ./plots/corr_len.png
+INPUT ./plots/corr_len.png
+INPUT ./plots/cluster_size.png
+INPUT ./plots/cluster_size.png
+INPUT plots/cluster_size.png
+INPUT ./plots/cluster_size.png
+INPUT ./plots/cluster_size.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
