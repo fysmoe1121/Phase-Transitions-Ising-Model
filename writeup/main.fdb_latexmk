@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1715046267 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715046267
-  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715046267 21577 a962177066b7a37552ada7141a036c02 ""
+["pdflatex"] 1715060889 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715060890
+  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715060697 23066 340af3b3ce648fc5fdf3a159a8974c47 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -9,6 +9,8 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm" 1136768653 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm" 1136768653 2288 f478fc8fed18759effb59f3dad7f3084 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm" 1136768653 4640 532ca3305aad10cc01d769f3f91f1029 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmro7t.tfm" 1136768653 2212 ddd058020f70d31af08b213e40125079 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmro8r.tfm" 1136768653 4548 f370a182a02c40d95c5554802dc0f174 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm" 1246382020 996 a18840b13b499c08ac2de96a99eda4bc ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -43,6 +45,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf" 1136768653 1372 788387fea833ef5963f4c5bffe33eb89 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf" 1136768653 1380 0ea3a3370054be6da6acd929ec569f06 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf" 1136768653 1384 a9d8adaf491ce34e5fba99dc7bbe5f39 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/times/ptmro7t.vf" 1136768653 1384 5daa35f30ad788d676a07a579b5db7fa ""
   "/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -126,11 +129,14 @@
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "algorithm.sty" 1714789002 2223 ada3eaa0c1bd465a639433dfafc2fc4e ""
   "algorithmic.sty" 1714789002 7414 ce084815cf0aab483787dbc4bf2ace9c ""
+  "diagrams/loopy_ising_model.png" 1715059773 35521 6414b4345833757ba76f82b384324524 ""
   "fancyhdr.sty" 1714789002 20521 e5d13d98d57bd53d4fed3aa61bd29c86 ""
   "icml2021.sty" 1714770811 27078 40fce9a3d87dd5282a5f66f3f6adeed1 ""
-  "main.aux" 1715046267 924 f1c2a5c9ad01782e9663eecd12cc98ae "pdflatex"
+  "main.aux" 1715060890 1183 6e48380c9fe63b9f1fc3c517e0f15463 "pdflatex"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1715046267 21577 a962177066b7a37552ada7141a036c02 ""
+  "main.tex" 1715060697 23066 340af3b3ce648fc5fdf3a159a8974c47 ""
+  "plots/avg_energy_vs_beta.png" 1715060871 32448 f70e489aefd9c6c8ec73506c9d385846 ""
+  "plots/avg_mag_vs_beta.png" 1715060870 30430 bdf9b4fba1366184619dd0b404b05106 ""
   (generated)
   "main.aux"
   "main.log"

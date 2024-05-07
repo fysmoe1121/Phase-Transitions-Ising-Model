@@ -34,7 +34,7 @@
 \begin{document}
 
 \twocolumn[
-\icmltitle{Phase Transition of Ising Model with Belief Propegation}
+\icmltitle{An Emperical Study of Phase Transitions in the Ising Model}
 
 % It is OKAY to include author information, even for blind
 % submissions: the style file will automatically remove it for you
@@ -117,7 +117,16 @@
     The Ising model models ferromagnestic materials as a two-dimensional lattice where each lattice site represents an 
     electron that is either spin up $\sigma_i = +1$ or spin down $\sigma_i = -1$. Each lattice point only interacts
     with it's adjacent neighbors. In this paper, we impose periodic boundary conditions. This is equivalent to the lattice wrapped around the surface of a torus. This simulates 
-    an infinitely large lattice and midigates boundary effects. Thus, the total energy (also known as the Hamiltonian $H$ in physics literature) is
+    an infinitely large lattice and midigates boundary effects. 
+    
+    \begin{figure}[ht]
+        \includegraphics[width=\columnwidth]{diagrams/loopy_ising_model.png}
+        \caption{Ising Model with Periodic boundary conditions}
+        \label{fig:1}
+    \end{figure}
+    
+    
+    Thus, the total energy (also known as the Hamiltonian $H$ in physics literature) is
 \begin{equation}
     E(\sigma) = - J \sum_{(i,j) \in \mathcal{N}} \sigma_i \sigma_j - B \sum_{j} \sigma_j
 \end{equation}
@@ -345,10 +354,40 @@ Thus, the probability of the spin flip under the heat bath update rule is
 We can just replace our Metropolis-Hasting algorithm with this new acceptance probability showing that the Gibbs sampler is special case of the Metropolis-Hasting algorithm. 
 This class of update rules that depend soley on the Boltzmann distrubtion is known as Glauber dynamics. We shall see in practice this update rule generally results in faster convergence.
 
-\subsection{Belief Propegation}
 
 \section{Experiments}
+\subsection{MCMC Convergence}
+    First we will compare the convergence of the Metropolis-Hasting sampler to the Gibbs sampler.
 
+    We see that Gibbs sampler has faster convergence and is more stable then the Metropolis-Hasting sampler. Thus, in the future,
+    we will be using the Gibbs sampler.
+\subsection{Order Parameters}
+
+Now we study how the energy and the magnetization change with $\beta$ and the lattice size $L$. 
+Both the energy and magnetization tells us how ordered our lattice is. Recall that when our lattice has
+has most of the spins pointing in the same direction, these aligned spins create favorable energetic interactions
+leading to the lattice being in a lower energy state.
+
+\begin{figure}[ht]
+    \includegraphics[width=\columnwidth]{plots/avg_energy_vs_beta.png}
+    \caption{Average Energy Density vs Inverse Temperature}
+    \label{fig:3}
+\end{figure}
+
+We notice that as $\beta$ decreases, $T$ increases and thus the thermal energy distrupts the orientation of the spins, causing
+the energy of the system to increase as $\beta$ decreases. 
+
+\begin{figure}[ht]
+    \includegraphics[width=\columnwidth]{plots/avg_mag_vs_beta.png}
+    \caption{Average Magnetization Density vs Inverse Temperature}
+    \label{fig:2}
+\end{figure}
+
+Test
+
+
+
+\subsection{Critical Phenomona}
 
 
 \section{Discussion}
