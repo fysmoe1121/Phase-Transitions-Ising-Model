@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1715073160 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715073161
-  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715073158 29373 5c241f72f2408516022fb7b8d6320c74 ""
+["pdflatex"] 1715074109 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715074110
+  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715074107 29080 0160bded16b1ec47ceee0a58c20df420 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -133,9 +133,9 @@
   "diagrams/loopy_ising_model.png" 1715059773 35521 6414b4345833757ba76f82b384324524 ""
   "fancyhdr.sty" 1714789002 20521 e5d13d98d57bd53d4fed3aa61bd29c86 ""
   "icml2021.sty" 1714770811 27078 40fce9a3d87dd5282a5f66f3f6adeed1 ""
-  "main.aux" 1715073161 1971 bb0c5dadd2090d8907caaedd6295afc4 "pdflatex"
+  "main.aux" 1715074110 1971 5dfbd9086f33a4b89bfbb37426e530b6 "pdflatex"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1715073158 29373 5c241f72f2408516022fb7b8d6320c74 ""
+  "main.tex" 1715074107 29080 0160bded16b1ec47ceee0a58c20df420 ""
   "plots/avg_energy_vs_beta.png" 1715060871 32448 f70e489aefd9c6c8ec73506c9d385846 ""
   "plots/avg_mag_vs_beta.png" 1715060870 30430 bdf9b4fba1366184619dd0b404b05106 ""
   "plots/cluster_size.png" 1715060691 54087 a201a5ea77f1a4f18854d27c32583715 ""
@@ -145,7 +145,7 @@
   "plots/log_log_corr_len.png" 1715066774 45952 64d6895fcbcd003e3084b434a6a330e3 ""
   "plots/mag_sq_density_gibbs.png" 1715070349 37491 7b3ec8892a08fd1762aed1965a2a1a5b ""
   "plots/mag_sq_density_mh.png" 1715070366 39168 65595e788759052e3e9a16689ce97959 ""
-  "plots/specific_heat.png" 1715072948 40068 cf798a8c783b9831a240f9e9f3202bea ""
+  "plots/specific_heat.png" 1715073584 39056 b82d9f154f6ac2648627abb4f1226ca0 ""
   (generated)
   "main.aux"
   "main.log"

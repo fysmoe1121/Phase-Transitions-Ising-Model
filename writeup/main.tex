@@ -79,11 +79,11 @@
 %\printAffiliationsAndNotice{\icmlEqualContribution} % otherwise use the standard text.
 
 \begin{abstract}
-    Ising models have traditionally been solved with Markov chain Monte Carlo methods, 
-    the most popular of which is the Gibbs’ sampler. However, MCMC suffers from correlated samples and long mixing times. 
-    In recent years, a new class of algorithms based on variational inference has come to light. These algorithms promise faster convergence abit at the cost of convergence. 
-    Belief propagation is an inference algorithm that uses message passing in order to approximate the probability distribution over a factor graph. 
-    In this paper, we apply belief propagation to solve the Ising model and show that during belief propagation, the 2D Ising model exhibits a phase transition similar to simulations using MCMC. We compare metrics of phase transitions to MCMC approaches and known theoretical results and conclude that belief propagation can solve the Ising model to a high degree of accuracy and retain many interesting properties that the Ising model is known for. 
+    The Ising model has been studied closely by statistical physicists for many decades. However, in recent years, computational
+    approaches have allowed scientists to run computer simulations of the Ising model. These simulations have given us new insights about
+    the Ising model's properties, in particular it's ability to experience a phase transition. A phase transition suggests that the Ising model
+    can reach a critical state. In this paper, we explore the properties of the Ising model's critical state and the statistical algorithms used
+    to reach such state.
 \end{abstract}
 
 \section{Introduction}
@@ -97,18 +97,16 @@
 
     Since Onsager's solution, it is known that the Ising model exhibits a phase transition just like magnets in the real world. Above the
     a special temperature, the critical temperature (or more generally the critical point), the system under goes a rapid change, changing from an ordered magnetic state to a disordered non-magnetic state. 
-    This rapid change of order is fundementally related to the relationship between energy, entropy and free energy. When the system is at the critical point, it is said to be at
+    This rapid change of order is fundementally related to the relationship between energy, entropy, specific heat, and free energy. When the system is at the critical point, it is said to be at
     criticality and many interesting properties such as scale invariance and long range correlations are present
     during the phase transition. 
 
     However, due to the difficulty of solving the Ising models in higher dimensions, many approxiomation methods have been devolved over the years. 
     Statistical physicists developed mean field theory and the cavity method to find approximate analytic solutions. In more recent times, the rise of computational 
     power allowed computer algorithms to approximate solutions to the Ising model. The most well known class of algorithms are Markov Chain Monte Carlo (MCMC) algorithms such as 
-    Metropolis-Hasting algorithm and Gibbs' sampling. Although these algorithms are powerful and still widely used, they suffer long convergence times and autocorrelated samples.
+    Metropolis-Hasting algorithm and Gibbs' sampling. 
     
-    In this paper, we explore an alternative algorithm to approximately solve the Ising model called belief propagation. Belief propagation works by sending messages 
-    from each node of a factor graph to iteratively find the probability distrubition. We show that this method can calculate solutions comparable to Metropolis-Hastings and Gibbs sampling 
-    and show that solutions given by belief propegation exhibit a phase translation like predicted theoretically. 
+    In this paper, we explore the use of these algorithms in order to study the interesting properties of the Ising model's phase transition.
 
 
 \section{Background}
@@ -387,6 +385,11 @@ This class of update rules that depend soley on the Boltzmann distrubtion is kno
 \section{Experiments}
 \subsection{MCMC Convergence}
     First we will compare the convergence of the Metropolis-Hasting sampler to the Gibbs sampler.
+    We generate a 40 by 40 lattice where each lattice site is spin down with probability 0.4. We then run the
+    samplers for 300,000 iterations, saving the state of the lattice every 10 iterations. What we notice is that
+    the Gibbs sampler is able to reach the optimal energy and magnetization in less iterations compared to the 
+    Metropolis-Hasting sampler and it is able to stay at that optimal value meanwhile the Metropolis-Hasting algorithm
+    has a harder time converging. 
 
     \begin{figure}[ht]
         \includegraphics[width=\columnwidth]{plots/energy_density_mh.png}
@@ -411,7 +414,9 @@ This class of update rules that depend soley on the Boltzmann distrubtion is kno
         \caption{Convergence test of Gibbs algorithm}
         \label{fig:3}
     \end{figure}
-    
+   
+Henceforth, we use the Gibbs sampler for the rest of the paper.
+
 \subsection{Order Parameters}
 
 Now we study how the energy and the magnetization change with $\beta$ and the lattice size $L$. 
