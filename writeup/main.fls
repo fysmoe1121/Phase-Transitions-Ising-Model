@@ -881,6 +881,11 @@ INPUT ./plots/cluster_size.png
 INPUT plots/cluster_size.png
 INPUT ./plots/cluster_size.png
 INPUT ./plots/cluster_size.png
+INPUT ./plots/log_log_corr_len.png
+INPUT ./plots/log_log_corr_len.png
+INPUT plots/log_log_corr_len.png
+INPUT ./plots/log_log_corr_len.png
+INPUT ./plots/log_log_corr_len.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

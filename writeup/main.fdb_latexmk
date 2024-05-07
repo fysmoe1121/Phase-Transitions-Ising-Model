@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1715065847 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715065848
-  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715065847 26721 5e6be3137b85a53a8caece68eb8facd1 ""
+["pdflatex"] 1715067048 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715067049
+  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715067046 27225 14cd1679dfd6c4299b9c6bf584498e71 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -132,13 +132,14 @@
   "diagrams/loopy_ising_model.png" 1715059773 35521 6414b4345833757ba76f82b384324524 ""
   "fancyhdr.sty" 1714789002 20521 e5d13d98d57bd53d4fed3aa61bd29c86 ""
   "icml2021.sty" 1714770811 27078 40fce9a3d87dd5282a5f66f3f6adeed1 ""
-  "main.aux" 1715065848 1354 200f8d18dbf0cc7e3701dbb1410c90b1 "pdflatex"
+  "main.aux" 1715067049 1427 bcb2ac71806f5adbce68cbc8438acbde "pdflatex"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1715065847 26721 5e6be3137b85a53a8caece68eb8facd1 ""
+  "main.tex" 1715067046 27225 14cd1679dfd6c4299b9c6bf584498e71 ""
   "plots/avg_energy_vs_beta.png" 1715060871 32448 f70e489aefd9c6c8ec73506c9d385846 ""
   "plots/avg_mag_vs_beta.png" 1715060870 30430 bdf9b4fba1366184619dd0b404b05106 ""
   "plots/cluster_size.png" 1715060691 54087 a201a5ea77f1a4f18854d27c32583715 ""
   "plots/corr_len.png" 1715060024 32452 f141c502ebcf0038b82b9d33d67283b5 ""
+  "plots/log_log_corr_len.png" 1715066774 45952 64d6895fcbcd003e3084b434a6a330e3 ""
   (generated)
   "main.aux"
   "main.log"
