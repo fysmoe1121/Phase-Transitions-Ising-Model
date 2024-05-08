@@ -178,7 +178,7 @@ This explains why the spins are misalligned at high temperature. The thermal ene
 This thermal function acts like a corrupting force constantly distrupting the spins of the system. It is also convient to define the free energy as
 
 \begin{equation}
-    F = kT \ln Z
+    F = -kT \ln Z
 \end{equation}
 
 These two formulas are equivalent
@@ -199,8 +199,8 @@ Plugging this into \eqref{eq:eq1} yields
 \begin{align}
     F &= E - T (k \beta E + k \ln Z) \\
     &= E - T (k \frac{1}{kT} E + k \ln Z) \\
-    &= E - E + kT \ln Z \\
-    &= kT \ln Z
+    &= E - E - kT \ln Z \\
+    &= -kT \ln Z
 \end{align}
 
 The energy can also be defined in terms of the partition function as
