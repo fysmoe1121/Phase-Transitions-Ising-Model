@@ -89,8 +89,8 @@
 \section{Introduction}
 \label{Introduction}
     The Ising model is a mathematical model of ferromagnestim in statistical mechanics.
-    Invented first by Wilhelm Lenz in 1920 and the equations of the one-dimensional Ising model were solved in by
-    Lenz's student Ernst Ising in 1924. In 1944, Lars Onsager solved the equations for the two-dimensional case. 
+    Invented first by Wilhelm Lenz in 1920 \cite{Lenz1920} and the equations of the one-dimensional Ising model were solved in by
+    Lenz's student Ernst Ising in 1924 \cite{Ising1925}. In 1944, Lars Onsager \cite{Onsager1944} solved the equations for the two-dimensional case. 
     As of today, no analytic solution has been found in dimensions three or higher. Over the last 100 years, many other problems such as percolation, min cut max flow, error correction, neural networks, and neurodegenerative diseases were
     shown to be very closely mathematically related to the Ising model. 
     The Ising model's relatively simple formulation yet rich and general mathematical properties makes a \textit{drosophila} of physics, mathematics, statistics, and computer science.
@@ -106,7 +106,9 @@
     power allowed computer algorithms to approximate solutions to the Ising model. The most well known class of algorithms are Markov Chain Monte Carlo (MCMC) algorithms such as 
     Metropolis-Hasting algorithm and Gibbs' sampling. 
     
-    In this paper, we explore the use of these algorithms in order to study the interesting properties of the Ising model's phase transition.
+    In this paper, we explore the use of these algorithms in order to study the interesting properties of the Ising model's phase transition. Originally I was to extend
+    this project to study error correcting codes in particular but I realize that my paper was already too long and I was more interested in physics and phase transition theory
+    then coding theory.
 
 
 \section{Background}
@@ -158,15 +160,27 @@ The PMF of the system is given by the Boltzmann distribution
 where the inverse temperature $\beta = 1/(kT)$, $k$ is Boltzmann's constant, and the partition function $Z$ is the normalization constant.
 Given an initial square lattice of $\sigma$ and inverse temperature $\beta$ the goal is to find the equalibrium distrubition over $\sigma$.
 
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[scale = 0.39]{diagrams/multiple_lattices.png}
+    \caption{Ising lattice at equilibrium for different values of $\beta$}
+    \label{fig:6}
+\end{figure*}
 
 \subsection{Phase Transition}
 In physics a phase transition refers to a change of a system from one state to another. A classical example is ice melting into water.
 However, more generally it refers to the rapid change of a systems order parameter as a function of one or more of the systems parameters. 
-This more general defintion can be applied to other fields such as rate distortion theory. The Ising model predicts a phase transition of a ferromagnetic system like an iron magnet from a demagnetized state to a magnetized state. 
+This more general definition can be applied to other fields such as rate distortion theory. The Ising model predicts a phase transition of a ferromagnetic system like an iron magnet from a demagnetized state to a magnetized state. 
 It is known emperically that heating a magnet above a certain temperature known as the Curie temperature (770 \degree C for iron) causes rapid
 demagnetization. The characteristic feature of the phase transition is that the magnetization strength changes very rapidly over a short range of temperature
 similar to how ice melts into water over a narrow temperature of range of 0\degree C. This transition from order to disorder is due to the changing strength of
 energetic and entropic forces.
+
+\begin{figure}[ht]
+    \includegraphics[width=\columnwidth]{plots/diff_spin_initializations.png}
+    \caption{At low inverse temperature, the net spin at equilibrium is 0 while at high inverse temperature the net spin at equilibrium is $\pm 1$.}
+    \label{fig:6}
+\end{figure}
 
 In nature, systems tend to minimize a thermodynamic quanity known as free energy. The free energy is given by
 
@@ -272,9 +286,19 @@ which is the correlation strength as a function of the distance between lattice 
 Another interesting phenomona observed at criticality is scale invariance. Suppose for each 3 by 3 block of spins, we replace that block
 with the spin corresponding to the majority spin value out of those 9 smaller spins. Apply this procedure to the whole lattice and we have
 a new lattice with a third of the distance scale. This procedure is called a course graining. We can continue this procedure indefinitely on an 
-infinitely large lattice. At the critical point, all these lattices of varying length scales look the same, in other words there is no 
+infinitely large lattice.
+
+\begin{figure}[ht]
+    \includegraphics[width=\columnwidth]{diagrams/course_grain.png}
+    \caption{Course graining procedure}
+    \label{fig:6}
+\end{figure}
+
+At the critical point, all these lattices of varying length scales look the same, in other words there is no 
 characteristic scale. To show this idea graphically, we plot the distribution of the cluster sizes where a cluster is a group of lattice points with
 the same spin. This gives us a scaling equation 
+
+
 
 \begin{equation}
     \frac{f(kx)}{f(x)} = g(k)
@@ -505,13 +529,28 @@ the correlation length.
 \end{figure}
 
 As we can see at $\beta=0.44$, the correlation length on a log-log plot is a straight line, meaning it follows
-a power law. Power laws are essential to understanding critical phenomenon. 
+a power law. The correlation length at $\beta = 0.44$ also has the greatest slope meaning that the correlation length
+is the greatest at large $d$.
+Power laws are essential to understanding critical phenomenon. 
 
 
 \section{Discussion}
+As we can see there is an abudence of evidence that the Ising model solved with the Gibbs sampler does obey a phase transition. Furthermore,
+the Gibbs sampler is able to produce samples of the Ising model's equalibrium state that exhibit features assiocated with a critical state. 
+We also see that many of the theoretical results pioneered by statistical physicists like Onsager correctly predict these simulation results. 
+Particularly Onsager calculation of $\beta_c = \frac{\ln(1+\sqrt{2})}{2} \approx 0.4407 $. The shape of the graph of the magnetization density also 
+follows an inverse hyperbolic sine shape. Correlation length and cluster size also follows a power law, a key property of systems at phase transition.
+
+In future, I hope to solve the Ising model with belief propagation. Belief propagation is very closely related to the minimization of Bethe free energy
+which has nice thermodynamic interpretations. These ideas are related to mean-field theory and cavity methods. Belief propagation also known as sum to product inference is also used to solve low density parity check codes (LDPC)
+and turbo codes. Belief propagation is also known to not converge on non-tree graphs so studying how close belief propegation is able to get to the solutions given 
+by Metropolis-Hasting and Gibbs would be interesting.
 
 \section{Conclusion}
+In this project I learned a lot about 
 
+\bibliography{main}
+\bibliographystyle{icml2021}
 
 \end{document}
 
