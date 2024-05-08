@@ -98,13 +98,13 @@
     Since Onsager's solution, it is known that the Ising model exhibits a phase transition just like magnets in the real world. Above the
     a special temperature, the critical temperature (or more generally the critical point), the system under goes a rapid change, changing from an ordered magnetic state to a disordered non-magnetic state. 
     This rapid change of order is fundementally related to the relationship between energy, entropy, specific heat, and free energy. When the system is at the critical point, it is said to be at
-    criticality and many interesting properties such as scale invariance and long range correlations are present
+    criticality and many interesting properties such as scale invariance \cite{Parisi2002} and long range correlations \cite{Griffiths1967} \cite{Wu1976} are present
     during the phase transition. 
 
-    However, due to the difficulty of solving the Ising models in higher dimensions, many approxiomation methods have been devolved over the years. 
-    Statistical physicists developed mean field theory and the cavity method to find approximate analytic solutions. In more recent times, the rise of computational 
+    However, due to the difficulty of solving the Ising models in higher dimensions, many approximate methods have been developed over the years. 
+    Statistical physicists developed mean field theory and the cavity method to find approximate analytic solutions \cite{Merhav2010} \cite{Mezard2009}. In more recent times, the rise of computational 
     power allowed computer algorithms to approximate solutions to the Ising model. The most well known class of algorithms are Markov Chain Monte Carlo (MCMC) algorithms such as 
-    Metropolis-Hasting algorithm and Gibbs' sampling. 
+    Metropolis-Hasting algorithm and Gibbs' sampling \cite{Tierney1994}. 
     
     In this paper, we explore the use of these algorithms in order to study the interesting properties of the Ising model's phase transition. Originally I was to extend
     this project to study error correcting codes in particular but I realize that my paper was already too long and I was more interested in physics and phase transition theory
@@ -142,8 +142,8 @@ We assume $J=1$ for simplicity and no external magnetic field $B=0$. Then our to
     E(\sigma) = - \sum_{(i,j) \in \mathcal{N}} \sigma_i \sigma_j 
 \end{equation} 
 We notice that the energy is lower when $\sigma_i$ and $\sigma_j$ are the same sign and greater when $\sigma_i$ and $\sigma_j$ 
-are different signs. The energy is minimized when the spins are alligned in the same direction, corresponding to a magnetized state.
-However, the entropy is maximized when the spins are misalligned corresponding to a demagnetized state.
+are different signs. The energy is minimized when the spins are aligned in the same direction, corresponding to a magnetized state.
+However, the entropy is maximized when the spins are misaligned corresponding to a demagnetized state.
 
 We can then introduce the partition function, 
 
@@ -158,7 +158,7 @@ The PMF of the system is given by the Boltzmann distribution
 \end{equation}
 
 where the inverse temperature $\beta = 1/(kT)$, $k$ is Boltzmann's constant, and the partition function $Z$ is the normalization constant.
-Given an initial square lattice of $\sigma$ and inverse temperature $\beta$ the goal is to find the equalibrium distrubition over $\sigma$.
+Given an initial square lattice of $\sigma$ and inverse temperature $\beta$ the goal is to find the equilibrium distribution over $\sigma$.
 
 \begin{figure*}[ht]
     \centering
@@ -171,7 +171,7 @@ Given an initial square lattice of $\sigma$ and inverse temperature $\beta$ the 
 In physics a phase transition refers to a change of a system from one state to another. A classical example is ice melting into water.
 However, more generally it refers to the rapid change of a systems order parameter as a function of one or more of the systems parameters. 
 This more general definition can be applied to other fields such as rate distortion theory. The Ising model predicts a phase transition of a ferromagnetic system like an iron magnet from a demagnetized state to a magnetized state. 
-It is known emperically that heating a magnet above a certain temperature known as the Curie temperature (770 \degree C for iron) causes rapid
+It is known empirically that heating a magnet above a certain temperature known as the Curie temperature (770 \degree C for iron) causes rapid
 demagnetization. The characteristic feature of the phase transition is that the magnetization strength changes very rapidly over a short range of temperature
 similar to how ice melts into water over a narrow temperature of range of 0\degree C. This transition from order to disorder is due to the changing strength of
 energetic and entropic forces.
@@ -182,14 +182,14 @@ energetic and entropic forces.
     \label{fig:6}
 \end{figure}
 
-In nature, systems tend to minimize a thermodynamic quanity known as free energy. The free energy is given by
+In nature, systems tend to minimize a thermodynamic quantity known as free energy. The free energy is given by
 
 \begin{equation}\label{eq:eq1}
     F = E - TS
 \end{equation}
 where $S$ is the thermodynamic entropy. At high temperatures the entropy term is dominant and at low temperature the energetic term is dominant.
-This explains why the spins are misalligned at high temperature. The thermal energy from the envirnoment is sufficent to flip the lattice site spins.
-This thermal function acts like a corrupting force constantly distrupting the spins of the system. It is also convient to define the free energy as
+This explains why the spins are misaligned at high temperature. The thermal energy from the environment is sufficient to flip the lattice site spins.
+This thermal function acts like a corrupting force constantly disrupting the spins of the system. It is also convenient to define the free energy as
 
 \begin{equation}
     F = -kT \ln Z
@@ -231,7 +231,7 @@ The energy can also be defined in terms of the partition function as
 
 These equations will be relevant when we discuss the connection between belief propagation and minimization of the Bethe free energy.
 
-By analyizing at what temperature the energy and entropy terms balance, Onsager solved the 2D Ising model analytitically in the case of no external magnetic field and showed that the critical temperature is
+By analyizing at what temperature the energy and entropy terms balance, Onsager solved the 2D Ising model analytically in the case of no external magnetic field and showed that the critical temperature is
 
 \begin{equation} \label{eq:eq24}
     T_c = \frac{2J}{k \ln(1 + \sqrt2)}
@@ -248,7 +248,7 @@ In the case of the Ising model, the order parameter is the magnetization given t
     \langle m \rangle = \frac1N \sum_{i=1}^N \sigma_i
 \end{equation}
 
-In order to not give preference to major spin down or spin up configurations, it is convient to define the mangetization squared
+In order to not give preference to major spin down or spin up configurations, it is convenient to define the magnetization squared
 $\langle m^2 \rangle = \frac1N \sum_{i=1^N} \sigma_i^2$.
 
 At the critical temperature, the system reaches a critical state where order and disorder are perfectly matched.
@@ -262,13 +262,13 @@ We can then define the specific heat as a measure of how difficult it is to brea
     &= k_B \beta^2 ( \langle E^2 \rangle - { \langle E \rangle }^2 )
 \end{align}
 
-where $\langle E^2 \rangle - { \langle E \rangle }^2 = \mathrm{Var}(E)$. This is analgous to how when ice melts into water, 
-adding more energy to melting ice does not increae it's temperature as all the energy is used to break the molecular bounds between 
+where $\langle E^2 \rangle - { \langle E \rangle }^2 = \mathrm{Var}(E)$. This is analogous to how when ice melts into water, 
+adding more energy to melting ice does not increase it's temperature as all the energy is used to break the molecular bounds between 
 the water molecules in the ice crystal to form liquid water. 
 
 This breaking of structure at the critical point is closely related to another phenomenon, long range correlations. The Ising model only takes into account
-interactions between neigboring lattice sites. Therefore, we expect the correlation between lattice sites to be very short and lattice sites
-long distances apart to act inpendendently. This is in general true except when the system is at criticality. When order and disorder
+interactions between neighboring lattice sites. Therefore, we expect the correlation between lattice sites to be very short and lattice sites
+long distances apart to act independently. This is in general true except when the system is at criticality. When order and disorder
 are perfectly balanced, local interactions have a ripple effect, meaning that local interactions lead to long range communication. The correlation function is given by
 
 \begin{equation}
@@ -283,7 +283,7 @@ where $\langle \cdot \rangle$ denotes the time average. Then we can define the c
 
 which is the correlation strength as a function of the distance between lattice sites.
 
-Another interesting phenomona observed at criticality is scale invariance. Suppose for each 3 by 3 block of spins, we replace that block
+Another interesting phenomenon observed at criticality is scale invariance. Suppose for each 3 by 3 block of spins, we replace that block
 with the spin corresponding to the majority spin value out of those 9 smaller spins. Apply this procedure to the whole lattice and we have
 a new lattice with a third of the distance scale. This procedure is called a course graining. We can continue this procedure indefinitely on an 
 infinitely large lattice.
@@ -306,7 +306,7 @@ the same spin. This gives us a scaling equation
 
 where $f(x)$ is the probability of observing a cluster size with size $x$ and $k$ is a scaling factor.
 Suppose $k=3$. Then this tells us that the probability of observing a cluster three times larger then $x$
-is a function $g(k)$. It turns out that we can show the only function $g$ that satifies this property is
+is a function $g(k)$. It turns out that we can show the only function $g$ that satisfies this property is
 $g(k) = k^{-\gamma}$ for some constant $\gamma$ which means
 
 
@@ -322,10 +322,10 @@ The slope of such line on a log-log plot is $-\gamma$.
 
 \subsection{Metropolis-Hasting}
 In the previous sections we have described the mathematical background behind the Ising model and theory of phase transitions.
-However, solving the Ising model analytitically is extremely difficult and in practice computational methods are used. The most common of these methods 
-are Monte Carlo Markov Chain methods. The simpliest example of MCMC is the Metropolis-Hasting algorithm. Metropolis-Hasting works by building 
-an implict Markov Chain model of the system and sampling from the stationary distrubtion of the chain to generate samples of the system's true probability
-distrubtion. This works because when the Ising model is at thermodynamic equalibrium, it's Markov chain satifies the detailed balance equations
+However, solving the Ising model analytically is extremely difficult and in practice computational methods are used. The most common of these methods 
+are Monte Carlo Markov Chain methods. The simplest  example of MCMC is the Metropolis-Hasting algorithm. Metropolis-Hasting works by building 
+an implicit Markov Chain model of the system and sampling from the stationary distribution of the chain to generate samples of the system's true probability
+distribution. This works because when the Ising model is at thermodynamic equilibrium, it's Markov chain satisfies the detailed balance equations
 
 \begin{equation}
     \pi_{\mu} P(\mu \rightarrow \nu) = \pi_{\nu} P(\nu \rightarrow \mu)
@@ -353,8 +353,8 @@ and $P(\nu \rightarrow \mu) = e^{-\beta(-\Delta E)}$. This gives us the acceptan
     \alpha = \min(1, e^{-\beta \Delta E})
 \end{equation}
 
-Thus, we only need to calculate the difference in energy $\Delta E = E_{\mu} - E_{\nu}$ when determining wether to accept or reject a canidate state.
-However, as we'll see, this naive method of randomly flipping a spin can lead to pathelogical a Markov chain.
+Thus, we only need to calculate the difference in energy $\Delta E = E_{\mu} - E_{\nu}$ when determining wether to accept or reject a candidate state.
+However, as we'll see, this naive method of randomly flipping a spin can lead to pathological a Markov chain.
 
 \subsection{Gibbs Sampler}
 The Gibbs sampler begins with $\mathbf{X} = (x_1, \ldots, x_2)$ with joint distribution $p(x_1, \ldots, x_n)$. Denote the $i$th sample
@@ -366,7 +366,7 @@ $\mathbf{X}^{(i)} = (x_1^{(i)}, \ldots, x_n^{(i)})$. Then the Gibbs sampler samp
 
 In our specific case we choose the index $j \sim U\{1,2,\ldots, n\}$. $x_j^{(i+1)}$ is given by $\ref{eq:eq33}$ and 
 $x_{\backslash j}^{(i+1)} = x_{\backslash j}^{(i)}$. The advantage of Gibbs sampling is that in some cases is it simpler ot sample from the conditional
-distrubtion then it is to marginalize the joint distrubtion.
+distribution then it is to marginalize the joint distribution.
 
 In the case of our Ising model, at each time step we sample a lattice point $j$ uniformly. Then according to our update rule, 
 the probability of $\sigma_j$ being spin up is given by 
@@ -403,7 +403,7 @@ Thus, the probability of the spin flip under the heat bath update rule is
 \end{equation}
 
 We can just replace our Metropolis-Hasting algorithm with this new acceptance probability showing that the Gibbs sampler is special case of the Metropolis-Hasting algorithm. 
-This class of update rules that depend soley on the Boltzmann distrubtion is known as Glauber dynamics. We shall see in practice this update rule generally results in faster convergence.
+This class of update rules that depend solely on the Boltzmann distribution is known as Glauber dynamics \cite{Martinelli1999}. We shall see in practice this update rule generally results in faster convergence.
 
 
 \section{Experiments}
@@ -454,8 +454,8 @@ leading to the lattice being in a lower energy state.
     \label{fig:3}
 \end{figure}
 
-We notice that as $\beta$ decreases, $T$ increases and thus the thermal energy distrupts the orientation of the spins, causing
-the energy of the system to increase as $\beta$ decreases. This is more appearent when we observe the plot of the magnetization.
+We notice that as $\beta$ decreases, $T$ increases and thus the thermal energy disrupts the orientation of the spins, causing
+the energy of the system to increase as $\beta$ decreases. This is more apparent when we observe the plot of the magnetization.
 
 \begin{figure}[ht]
     \includegraphics[width=\columnwidth]{plots/avg_mag_vs_beta.png}
@@ -472,7 +472,7 @@ in \eqref{eq:eq24} gives
 which is in very close agreement. 
 
 Lastly we also notice that as $L$ increases, the phase transition becomes sharper. This suggests that phase transitions are
-an emergent phenomenon. In reality, the number of electrons is orders of magnetudes larger then this simulation giving the extremely sharp 
+an emergent phenomenon. In reality, the number of electrons is orders of magnitudes larger then this simulation giving the extremely sharp 
 phase transitions we observe in nature. All these observations hold true for the specific heat.
 
 \begin{figure}[ht]
@@ -502,8 +502,8 @@ leading to little correlation between spins. This emergent behavior of local int
 neuroscience where local interactions between nearby neurons leads to long range communication across distance areas of the brain.
 
 The other property of criticality that we outlined in section 2.2 is scale invariance. 
-Using DFS to count the size of each cluster, we plotted the distrubition of cluster sizes on the log-log plot. 
-If the clusters have no characteristic scale, the distrubition of the cluster sizes follow a power law. 
+Using DFS to count the size of each cluster, we plotted the distribution of cluster sizes on the log-log plot. 
+If the clusters have no characteristic scale, the distribution of the cluster sizes follow a power law. 
 On a log-log plot, power laws appear as straight lines. Plotting the distribution of cluster sizes for different
 values of $\beta$ reveals that $\beta = 0.44$ gives a curve that resembles a straight line the most.
 
@@ -535,20 +535,20 @@ Power laws are essential to understanding critical phenomenon.
 
 
 \section{Discussion}
-As we can see there is an abudence of evidence that the Ising model solved with the Gibbs sampler does obey a phase transition. Furthermore,
-the Gibbs sampler is able to produce samples of the Ising model's equalibrium state that exhibit features assiocated with a critical state. 
+As we can see there is an abundance of evidence that the Ising model solved with the Gibbs sampler does obey a phase transition. Furthermore,
+the Gibbs sampler is able to produce samples of the Ising model's equilibrium state that exhibit features associated with a critical state. 
 We also see that many of the theoretical results pioneered by statistical physicists like Onsager correctly predict these simulation results. 
 Particularly Onsager calculation of $\beta_c = \frac{\ln(1+\sqrt{2})}{2} \approx 0.4407 $. The shape of the graph of the magnetization density also 
 follows an inverse hyperbolic sine shape. Correlation length and cluster size also follows a power law, a key property of systems at phase transition.
 
-In future, I hope to solve the Ising model with belief propagation. Belief propagation is very closely related to the minimization of Bethe free energy
+In future, I hope to solve the Ising model with belief propagation \cite{Koehler2019}. Belief propagation is very closely related to the minimization of Bethe free energy
 which has nice thermodynamic interpretations. These ideas are related to mean-field theory and cavity methods. Belief propagation also known as sum to product inference is also used to solve low density parity check codes (LDPC)
-and turbo codes. Belief propagation is also known to not converge on non-tree graphs so studying how close belief propegation is able to get to the solutions given 
+and turbo codes. Belief propagation is also known to not converge on non-tree graphs so studying how close belief propagation is able to get to the solutions given 
 by Metropolis-Hasting and Gibbs would be interesting.
 
 The Ising model is also intimately tied to theoretical computer science through the min-cut-max-flow formulation. It's been known that finding the minimum
-energy of an Ising lattice is in general NP hard. It is part of a broader range of difficult combintorical optimization problems. Such other NP hard problems
-include maximum likihood decoding of LDPC and Turbo codes. It's been known since Karp that all of these problems reduce to SAT. Thus studying methods to solve the
+energy of an Ising lattice is in general NP hard. It is part of a broader range of difficult combinatorial optimization problems. Such other NP hard problems
+include maximum likelihood decoding of LDPC and Turbo codes. It's been known since Karp that all of these problems reduce to SAT. Thus studying methods to solve the
 Ising model can open the door to efficient approximate SAT solvers. Efficient and accurate SAT solvers have widespread application to many branches of computer science
 from protein folding to optimal Mario game.
 

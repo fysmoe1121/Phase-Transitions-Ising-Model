@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1715153970 "main.aux" "main.bbl" "main" 1715153991
+["bibtex main"] 1715155738 "main.aux" "main.bbl" "main" 1715155740
   "./icml2021.bst" 1714789002 27147 754d35bad1e0551f1b55824eb3875247 ""
-  "main.aux" 1715153991 2547 4099e976744f5b001d66d7b309a5dab7 "pdflatex"
-  "main.bib" 1715149558 1138 41a5e008025d4028d6f5f06e69b5129f ""
+  "main.aux" 1715155739 3213 166c59b52e42fb5fad0698a8611d7f66 "pdflatex"
+  "main.bib" 1715155734 3495 db063a6470f54cc9c1598ed4e2682fc6 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1715153989 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715153991
-  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715153989 33700 81c6b3393af45a899702d5e688c2312f ""
+["pdflatex"] 1715155738 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715155740
+  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715155734 33859 18695ce8c2132e95ffd62375bc32e534 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -15,6 +15,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm" 1136768653 2124 2601a75482e9426d33db523edf23570a ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm" 1136768653 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm" 1136768653 2288 f478fc8fed18759effb59f3dad7f3084 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmri8c.tfm" 1136768653 1428 3f135d3346fb7bfe71989ef2e19a9f01 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm" 1136768653 4640 532ca3305aad10cc01d769f3f91f1029 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmro7t.tfm" 1136768653 2212 ddd058020f70d31af08b213e40125079 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmro8r.tfm" 1136768653 4548 f370a182a02c40d95c5554802dc0f174 ""
@@ -54,6 +55,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf" 1136768653 1372 788387fea833ef5963f4c5bffe33eb89 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf" 1136768653 1380 0ea3a3370054be6da6acd929ec569f06 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf" 1136768653 1384 a9d8adaf491ce34e5fba99dc7bbe5f39 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/times/ptmri8c.vf" 1136768653 3564 2068501a2226e54ce367edd5b047e424 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/times/ptmro7t.vf" 1136768653 1384 5daa35f30ad788d676a07a579b5db7fa ""
   "/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -125,6 +127,7 @@
   "/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/omlptm.fd" 1137110629 577 008ea4bacb8ccf8c2a39dc94e000ef1f ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1137110629 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/times.sty" 1586716065 856 8e0e5c8cca7b18e0400f97f5a2b90a99 ""
+  "/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ts1ptm.fd" 1137110629 619 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty" 1576624809 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1575674187 9715 b051d5b493d9fe5f4bc251462d039e5f ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/subfigure/subfigure.cfg" 1167176009 2062 a0e7d66e09e508f51289a656aec06ed2 ""
@@ -144,10 +147,10 @@
   "diagrams/multiple_lattices.png" 1715151108 38273 486a0d1579f5093132da0d08fdfb0414 ""
   "fancyhdr.sty" 1714789002 20521 e5d13d98d57bd53d4fed3aa61bd29c86 ""
   "icml2021.sty" 1714770811 27078 40fce9a3d87dd5282a5f66f3f6adeed1 ""
-  "main.aux" 1715153991 2547 4099e976744f5b001d66d7b309a5dab7 "pdflatex"
-  "main.bbl" 1715153970 963 4189c8430036f616e322e8e0bf27ab5b "bibtex main"
+  "main.aux" 1715155739 3213 166c59b52e42fb5fad0698a8611d7f66 "pdflatex"
+  "main.bbl" 1715155738 2844 ef8488ee25cbfc7ec19044157f52c176 "bibtex main"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1715153989 33700 81c6b3393af45a899702d5e688c2312f ""
+  "main.tex" 1715155734 33859 18695ce8c2132e95ffd62375bc32e534 ""
   "plots/avg_energy_vs_beta.png" 1715060871 32448 f70e489aefd9c6c8ec73506c9d385846 ""
   "plots/avg_mag_vs_beta.png" 1715060870 30430 bdf9b4fba1366184619dd0b404b05106 ""
   "plots/cluster_size.png" 1715060691 54087 a201a5ea77f1a4f18854d27c32583715 ""
