@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1715151421 "main.aux" "main.bbl" "main" 1715151534
+["bibtex main"] 1715153970 "main.aux" "main.bbl" "main" 1715153991
   "./icml2021.bst" 1714789002 27147 754d35bad1e0551f1b55824eb3875247 ""
-  "main.aux" 1715151534 2546 fb02a1c7a97ad74b6dc67b8d7c19e91b "pdflatex"
+  "main.aux" 1715153991 2547 4099e976744f5b001d66d7b309a5dab7 "pdflatex"
   "main.bib" 1715149558 1138 41a5e008025d4028d6f5f06e69b5129f ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1715151532 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715151534
-  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715151532 31561 40a7579faa805e1b65799dfce3d976ac ""
+["pdflatex"] 1715153989 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715153991
+  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715153989 33700 81c6b3393af45a899702d5e688c2312f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -144,10 +144,10 @@
   "diagrams/multiple_lattices.png" 1715151108 38273 486a0d1579f5093132da0d08fdfb0414 ""
   "fancyhdr.sty" 1714789002 20521 e5d13d98d57bd53d4fed3aa61bd29c86 ""
   "icml2021.sty" 1714770811 27078 40fce9a3d87dd5282a5f66f3f6adeed1 ""
-  "main.aux" 1715151534 2546 fb02a1c7a97ad74b6dc67b8d7c19e91b "pdflatex"
-  "main.bbl" 1715151421 963 4189c8430036f616e322e8e0bf27ab5b "bibtex main"
+  "main.aux" 1715153991 2547 4099e976744f5b001d66d7b309a5dab7 "pdflatex"
+  "main.bbl" 1715153970 963 4189c8430036f616e322e8e0bf27ab5b "bibtex main"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1715151532 31561 40a7579faa805e1b65799dfce3d976ac ""
+  "main.tex" 1715153989 33700 81c6b3393af45a899702d5e688c2312f ""
   "plots/avg_energy_vs_beta.png" 1715060871 32448 f70e489aefd9c6c8ec73506c9d385846 ""
   "plots/avg_mag_vs_beta.png" 1715060870 30430 bdf9b4fba1366184619dd0b404b05106 ""
   "plots/cluster_size.png" 1715060691 54087 a201a5ea77f1a4f18854d27c32583715 ""

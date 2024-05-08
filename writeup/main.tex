@@ -546,9 +546,26 @@ which has nice thermodynamic interpretations. These ideas are related to mean-fi
 and turbo codes. Belief propagation is also known to not converge on non-tree graphs so studying how close belief propegation is able to get to the solutions given 
 by Metropolis-Hasting and Gibbs would be interesting.
 
-\section{Conclusion}
-In this project I learned a lot about 
+The Ising model is also intimately tied to theoretical computer science through the min-cut-max-flow formulation. It's been known that finding the minimum
+energy of an Ising lattice is in general NP hard. It is part of a broader range of difficult combintorical optimization problems. Such other NP hard problems
+include maximum likihood decoding of LDPC and Turbo codes. It's been known since Karp that all of these problems reduce to SAT. Thus studying methods to solve the
+Ising model can open the door to efficient approximate SAT solvers. Efficient and accurate SAT solvers have widespread application to many branches of computer science
+from protein folding to optimal Mario game.
 
+\section{Conclusion}
+Most of the actual work of this project was writing code in Python. From a practical standpoint, I learned a lot about implementing algorithms such
+the MCMC algorithms and writing functions to calculate the correlation length and cluster size. Calculation of the correlation length involved a tricky
+method to get all pairs of lattice sites because the lattice is periodic. Then I had to store all the dynamic correlation values in a dictionary and take the sample
+average over all pairs of lattice sites a particular distance $d$ apart. For the cluster size calculation, I had to implement a depth first search algorithm
+to traverse all the clusters. Lastly, I learned how to run many many experiments and keep careful track of the results. I also had to write many plotting 
+and visualization functions. 
+
+A challenge that I ran into is simply the time that it took to run each experiment. That is why I spent a lot of time optimizing each function with NumPy vectorized
+operations and numba JIT (just in time complier). Numba proved quite difficult to use as only primitive types could be used. If I had more time, I would've written the most performance sensitive functions
+in a lower level language like C++. However, writing C++ code is hard and time consuming but it can have amazing performance as I can optimize things such as how the array
+is stored in memory to maximize cache hit rate and more.
+
+Lastly, formatting the writeup into a double column format was annoying at times.
 \bibliography{main}
 \bibliographystyle{icml2021}
 
