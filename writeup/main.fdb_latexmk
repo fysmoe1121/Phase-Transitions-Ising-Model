@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1715155738 "main.aux" "main.bbl" "main" 1715155740
+["bibtex main"] 1715238632 "main.aux" "main.bbl" "main" 1715238687
   "./icml2021.bst" 1714789002 27147 754d35bad1e0551f1b55824eb3875247 ""
-  "main.aux" 1715155739 3213 166c59b52e42fb5fad0698a8611d7f66 "pdflatex"
-  "main.bib" 1715155734 3495 db063a6470f54cc9c1598ed4e2682fc6 ""
+  "main.aux" 1715238687 3391 5f3161487a4fbbf8f665f8310cbb2283 "pdflatex"
+  "main.bib" 1715238628 3865 824b14d57d06c9f79d8eaf25df89fa14 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1715155738 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715155740
-  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715155734 33859 18695ce8c2132e95ffd62375bc32e534 ""
+["pdflatex"] 1715238686 "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" "main.pdf" "main" 1715238687
+  "/Users/leonma/Desktop/Phase-Transition-of-Error-Correcting-Codes/writeup/main.tex" 1715238686 34586 f3ef4cb619282b62091e10505c1885c1 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -147,10 +147,10 @@
   "diagrams/multiple_lattices.png" 1715151108 38273 486a0d1579f5093132da0d08fdfb0414 ""
   "fancyhdr.sty" 1714789002 20521 e5d13d98d57bd53d4fed3aa61bd29c86 ""
   "icml2021.sty" 1714770811 27078 40fce9a3d87dd5282a5f66f3f6adeed1 ""
-  "main.aux" 1715155739 3213 166c59b52e42fb5fad0698a8611d7f66 "pdflatex"
-  "main.bbl" 1715155738 2844 ef8488ee25cbfc7ec19044157f52c176 "bibtex main"
+  "main.aux" 1715238687 3391 5f3161487a4fbbf8f665f8310cbb2283 "pdflatex"
+  "main.bbl" 1715238632 3211 e76e65bbc24102543e930caee5d52b3f "bibtex main"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1715155734 33859 18695ce8c2132e95ffd62375bc32e534 ""
+  "main.tex" 1715238686 34586 f3ef4cb619282b62091e10505c1885c1 ""
   "plots/avg_energy_vs_beta.png" 1715060871 32448 f70e489aefd9c6c8ec73506c9d385846 ""
   "plots/avg_mag_vs_beta.png" 1715060870 30430 bdf9b4fba1366184619dd0b404b05106 ""
   "plots/cluster_size.png" 1715060691 54087 a201a5ea77f1a4f18854d27c32583715 ""
